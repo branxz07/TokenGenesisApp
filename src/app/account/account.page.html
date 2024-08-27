@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Account</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="home()">Home</ion-button>
+      <ion-button (click)="logout()">Logout</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Genesis Identification</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item>
+              <ion-label>Token:</ion-label>
+              <ion-label>{{ user.tokenDigIdentity }}</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label>Name:</ion-label>
+              <ion-label>{{ user.name + " " + user.fLastname + " " + user.mLastname }}</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label>Email:</ion-label>
+              <ion-label>{{ user.email }}</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label>Rol Level:</ion-label>
+              <ion-label>{{ user.rolLevel }}</ion-label>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

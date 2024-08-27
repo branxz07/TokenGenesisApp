@@ -1,0 +1,7 @@
+{
+  "name": "digitalIDapp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
