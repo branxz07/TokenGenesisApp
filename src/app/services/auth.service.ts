@@ -31,6 +31,12 @@ export class AuthService {
     localStorage.removeItem(this.userKey);
   }
 
+// //tokens ex.
+// 0x2CFcBB9Cf2910fBa7E7E7a8092aa1a40BC5BA341
+// 0xa6ba79E509d7adb4594852E50D3e48BDcA15D07e
+// 0x32d680Aa90D45B677BBa0fFE9Af3d3578dcB4a83
+// 0x207Ee448397059BA705629674b2F8c9Df1CA594b
+
   // Método para autenticar al usuario
   authenticate(email: string, password: string, tokenDigIdentity: string): any {
 
@@ -39,6 +45,8 @@ export class AuthService {
 
 
     // Ejemplo de cómo podria hacerce
+
+
     const users = [
       { email: 'user@user.com', password: 'password123', rolLevel: 10,
         
@@ -51,8 +59,6 @@ export class AuthService {
         tokenFather: 'PLOIFE809H2', //No idea of tht type address and how the token would be?
         tokenMother: '09823JHDFWK', //No idea of tht type address and how the token would be ?
         tokenDigIdentity: 'PQ90D20OUIP' //No idea of tht type address and how the token would be ?
-
-
        },
       { email: 'another@user.com', password: 'password123', rolLevel: 10,
         
@@ -65,6 +71,7 @@ export class AuthService {
         tokenFather: 'H7G37HDWI8D', //No idea of tht type address and how the token would be?
         tokenMother: 'FHOW9WH920L', //No idea of tht type address and how the token would be ?
         tokenDigIdentity: 'AC073V0KPJE' //No idea of tht type address and how the token would be ?
+
 
        },
        {email: 'zaidgg@email.com', password: 'p1234', rolLevel: 0, //for the app auth 
@@ -125,9 +132,11 @@ export class AuthService {
         name: 'Zaid', fLastname:'Gutierrez', mLastname: 'Gonzales',
          gender: true, bday: 8, bmonth:1, byear:2003,
          state: 'Jalisco', municipality: 'Guadalajara', 
+
          //Date in Epoch format 
          dateCreation: 1724685214,
          dateLastUpdate: 1724686872,  //Change every time th einfo is updated (Epoch format)
+
          tokenFather: 'NAG36733G8D', //No idea of tht type address and how the token would be?
          tokenMother: '876DHOOAAW8', //No idea of tht type address and how the token would be ?
          tokenDigIdentity: 'HU432FE34W2' //No idea of tht type address and how the token would be ?
