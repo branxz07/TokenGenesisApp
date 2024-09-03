@@ -1,6 +1,11 @@
 // src/app/services/auth.service.ts
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpClient,HttpErrorResponse  } from '@angular/common/http';
+import { Observable, of,throwError } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +13,28 @@ import { Router } from '@angular/router';
 export class AuthService {
   private userKey = 'user';  // La clave para almacenar el usuario en localStorage
 
-  constructor(private router: Router) {}
+  private apiUrl = 'https://f602fafd-cea2-4f7d-8637-64d8df92f018.mock.pstmn.io'; // Replace with your actual API URL
+  private fetchedUsers: any[] = []; // Array to store fetched data
+
+  constructor(private router: Router, private http: HttpClient) {}
+  fetchAndStoreUsers(): Observable<any[]> {
+    return this.http.get<any>(this.apiUrl+"/getUsers").pipe(
+      map(response => {
+        if (response && Array.isArray(response.users)) {
+          // Return the array of users
+          return response.users;
+        } else {
+          // Log or handle unexpected response format
+          console.error('Unexpected response format:', response);
+          return [];
+        }
+      }),
+      catchError(error => {
+        console.error('Error fetching users', error);
+        return of([]); // Return an empty array in case of error
+      })
+    );
+  }
 
   // Verifica si el usuario está autenticado
   isAuthenticated(): boolean {
