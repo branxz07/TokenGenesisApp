@@ -66,11 +66,16 @@ newUser: User = {
 
   ngOnInit() {
     this.loadUsers();
+    this.authService.fetchAndStoreUsers().subscribe(users => {
+      console.log('Users fetched in Dashboard:', users);
+    });
   }
 
   loadUsers() {
-    this.users = this.authService.getUsers().map(user => ({ ...user, selected: false }));
-    this.filteredUsers = [...this.users];
+    this.authService.fetchAndStoreUsers().subscribe(users => {
+      this.users = users.map(user => ({ ...user, selected: false }));
+      this.filteredUsers = [...this.users];
+    });
   }
 
   filterUsers(event: any) {
